@@ -1,30 +1,17 @@
-<p align="center">
- <img src="assets/logo.png" alt="drawing" width="200" style="float: center;"/> 
-</p>
+<h1 align="center"> Extended CryptoMamba: Leveraging State Space Models for Accurate Bitcoin Price Prediction</h1>
 
-<h1 align="center">🚀 CryptoMamba: Leveraging State Space Models for Accurate Bitcoin Price Prediction</h1>
-
-<p align="center">
+<!-- <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"/></a>
   <a href="https://github.com/MShahabSepehri/CryptoMamba/stargazers"><img src="https://img.shields.io/github/stars/MShahabSepehri/CryptoMamba?style=social" alt="GitHub Stars"/></a>
-</p>
-
-> 📣 **Announcements**  
-> CryptoMamba paper has been published at [IEEE International Conference on Blockchain and Cryptocurrency (ICBC) 2025](https://icbc2025.ieee-icbc.org/)! 🎉  
-> We presented CryptoMamba at the [Advances in Financial AI Workshop @ ICLR 2025](https://sites.google.com/view/financialaiiclr25/).
+</p> -->
 
 <p align="justify" > 
-<strong>CryptoMamba</strong> is a novel Mamba-based architecture designed for accurate and efficient time-series forecasting, with a focus on cryptocurrency price prediction. Leveraging the capabilities of SSMs, CryptoMamba excels at capturing long-range dependencies and adapting to highly volatile market conditions.
+<strong>This repository is an extended version the orignal project, CryptoMamba</strong>, that incorporates sentiment analysis to improve Bitcoin price prediction. 
 </p>
 
 Repository Includes:
-- **Implementation** of CryptoMamba and baseline models (LSTM, Bi-LSTM, GRU, and S-Mamba).  
-- **Two Trading Algorithms**: Vanilla and Smart, for evaluating real-world performance.  
+- **Implementation** of CryptoMamba and baseline models (LSTM, ITransformer, TCN).  
 - **Code** for data preprocessing, model training, evaluation metrics, and trading simulations.  
-
-<p align="justify"> 
-CryptoMamba’s robust performance and generalizability make it a promising solution for various sequential forecasting tasks, including financial markets, commodities, and other time-series applications.
-</p>
 
 ## 📖 Table of Contents
 
@@ -69,17 +56,17 @@ If you want to change the time resolution, you should change the <code>date_form
 
 
 ### Train New Model
-To train a model, use the following: 
+To train a model and save it to <a href="checkpoints/">, use the following: 
 
 ```
-python3 scripts/training.py --config CONFIG_NAME
+python3 scripts/training.py --config CONFIG_NAME --save_checkpoints
 ```
 <p align="justify" > 
 Here, <code>CONFIG_NAME</code> is the name of a config file in <a href="configs/training/">the training config folder</a> without its extension. For example, to train CryptoMamba with volume you can run the following command:
 </p>
 
 ```
-python3 scripts/training.py --config cmamba_v
+python3 scripts/training.py --config cmamba_v 
 ```
 
 ### Evaluate Model
@@ -97,7 +84,7 @@ python scripts/simulate_trade.py --config CONFIG_NAME --ckpt_path PATH_TO_CHECKP
 
 Where `SPLIT_NAME` is `train`, `val`, or `test` and `TRADE_ALGORITHM is` `smart` or `vanilla` or `smart_w_short`.
 
-### Predict Next Day Price
+<!-- ### Predict Next Day Price
 <p align="justify" > 
 We also have a script to predict the next day's price and trade suggestions by providing the prices of its previous days. You have to create a <code>csv</code> file similar to [this](data/one_day_trade.csv) and use this command:
 </p>
@@ -106,7 +93,7 @@ We also have a script to predict the next day's price and trade suggestions by p
 python scripts/one_day_pred.py --config CONFIG_NAME --ckpt_path PATH_TO_CHECKPOINT --date DATE
 ```
 
-If you don't provide a value for `DATE`, the code automatically predicts one day after the last day that is in the file.
+If you don't provide a value for `DATE`, the code automatically predicts one day after the last day that is in the file. -->
 
 <!-- ### Trading Suggestion -->
  
@@ -114,6 +101,8 @@ If you don't provide a value for `DATE`, the code automatically predicts one day
 ## 📈 Results
 
 <div align="center">
+
+**modify later**
 
 | Model | RMSE | MAPE | MAE | Parameters |
 | :--: | :--: | :--: | :--: |  :--: |
