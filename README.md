@@ -1,4 +1,4 @@
-<h1 align="center"> Extended CryptoMamba: Leveraging State Space Models for Accurate Bitcoin Price Prediction</h1>
+<h1> Extended CryptoMamba: Leveraging SSM for Bitcoin Price Prediction</h1>
 
 <!-- <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License"/></a>
@@ -6,7 +6,7 @@
 </p> -->
 
 <p align="justify" > 
-<strong>This repository is an extended version the orignal project, CryptoMamba</strong>, that incorporates sentiment analysis to improve Bitcoin price prediction. 
+This repository is an extended version of the original project, <a href="https://github.com/MShahabSepehri/CryptoMamba">CryptoMamba</a>, that incorporates sentiment analysis to improve Bitcoin price prediction. 
 </p>
 
 Repository Includes:
@@ -21,10 +21,8 @@ Repository Includes:
     * [Config](#config)
     * [Train New Model](#train-new-model)
     * [Evaluate Model](#evaluate-model)
-    * [Predict Next Day Price](#predict-next-day-price)
   * [Results](#-results)
   * [Citation](#-citation)
-  * [Where to Ask for Help](#-where-to-ask-for-help)
 
 ## 🔧 Requirements
 
@@ -102,7 +100,7 @@ If you don't provide a value for `DATE`, the code automatically predicts one day
 
 <div align="center">
 
-**modify later**
+## modify later
 
 | Model | RMSE | MAPE | MAE | Parameters |
 | :--: | :--: | :--: | :--: |  :--: |
@@ -127,8 +125,6 @@ If you don't provide a value for `DATE`, the code automatically predicts one day
 -->
 ## 🎯 Citation 
 
-If you use CryptoMamba in a research paper, please cite our [paper](https://arxiv.org/abs/2501.01010):
-
 ```bibtex
 @article{Sepehri2025CryptoMamba,
       title={CryptoMamba: Leveraging State Space Models for Accurate Bitcoin Price Prediction}, 
@@ -138,8 +134,3 @@ If you use CryptoMamba in a research paper, please cite our [paper](https://arxi
 }
 ```
 
-## ❓ Where to Ask for Help
-
-<p align="justify" > 
-If you have any questions, feel free to open a <a href="https://github.com/MShahabSepehri/CryptoMamba/discussions">Discussion</a> and ask your question. You can also email <a href="mailto:sepehri@usc.edu">sepehri@usc.edu</a> (Mohammad Shahab Sepehri) or <a href="mailto:mehradfa@usc.edu">mehradfa@usc.edu</a> (Asal Mehradfar).
-</p>
