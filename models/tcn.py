@@ -4,7 +4,7 @@ from torch.nn.utils import weight_norm
 
 class Chomp1d(nn.Module):
     """
-    Removes the last elements of a time series to ensure causal convolutions.
+    Removes the last elements of a time series to ensure causal convolutions
     """
     def __init__(self, chomp_size):
         super(Chomp1d, self).__init__()
@@ -48,14 +48,15 @@ class TemporalBlock(nn.Module):
 class TCN(nn.Module):
     def __init__(self, num_features, num_channels, kernel_size=2, dropout=0.2):
         """
-        num_features: Number of input features (e.g., 5 for OHLC+timestamp or 6 with volume)
-        num_channels: List of integers. The i-th element represents the number of channels in the i-th layer
-        kernel_size: Size of the convolving kernel
-        dropout: Dropout rate
+        num_features: # of input features (5 for OHLC+timestamp or 6 with volume)
+        num_channels: list of integers; i-th element represents the number of channels in the i-th layer
+        kernel_size: size of the convolving kernel
+        dropout: dropout rate
         """
         super(TCN, self).__init__()
         layers = []
         num_levels = len(num_channels)
+        
         for i in range(num_levels):
             dilation_size = 2 ** i
             in_channels = num_features if i == 0 else num_channels[i-1]
@@ -75,7 +76,9 @@ class TCN(nn.Module):
     def forward(self, x):
         # x input shape: [batch_size, sequence_length, num_features]
         # Reshape for TCN: [batch_size, num_features, sequence_length]
-        x = x.transpose(1, 2)
+        # x = x.transpose(1, 2)
+        print(f"Input shape before permute: {x.shape}")
+        
         y = self.network(x)
         # Use the last timestep's features for prediction
         out = self.linear(y[:, :, -1])
