@@ -2,7 +2,7 @@ data_config: 'mode_1'
 model: 'TCN_nv'
 
 name: 'tcn'
-max_epochs: 50
+max_epochs: 10
 use_volume: False
 
 hyperparams:

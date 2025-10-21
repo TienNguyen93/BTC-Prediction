@@ -90,6 +90,7 @@ class TCN(nn.Module):
         out = self.linear(y[:, :, -1])
         return out
         """
+        print(f"Input shape: {x.shape}")
 
         # new code
         return self.network(x)
