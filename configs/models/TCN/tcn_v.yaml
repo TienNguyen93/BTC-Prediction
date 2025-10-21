@@ -1,8 +1,8 @@
 target: pl_modules.tcn_module.TCNModule
 params:
     num_features: 6  # OHLC + timestamp + volume
-    num_channels: [32, 64, 128, 256]  # Number of channels in each layer (increases with depth)
-    kernel_size: 3
+    num_channels: [16, 32, 32] 
+    kernel_size: 2
     dropout: 0.2
     loss: 'mse'
 normalize: False
