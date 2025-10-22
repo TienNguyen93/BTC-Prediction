@@ -61,6 +61,12 @@ class TCN(nn.Module):
         super(TCN, self).__init__()
         layers = []
         num_levels = len(num_channels)
+
+        print('tcn.py here: ', 
+              'num_features:', num_features, 
+              'num_channels:', num_channels, 
+              'kernel_size:', kernel_size, 
+              'dropout:', dropout)
         
         for i in range(num_levels):
             dilation_size = 2 ** i
