@@ -2,7 +2,7 @@ data_config: 'mode_1'
 model: 'LSTM_v'
 
 name: 'lstm'
-max_epochs: 50
+max_epochs: 400
 use_volume: True
 
 hyperparams:

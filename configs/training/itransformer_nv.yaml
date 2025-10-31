@@ -2,7 +2,7 @@ data_config: 'mode_1'
 model: 'iTransformer_nv'
 
 name: 'itransformer'
-max_epochs: 50
+max_epochs: 400
 use_volume: False
 
 hyperparams:

@@ -93,6 +93,26 @@ def get_args():
         default=200,
     )
 
+    #--------------- NEW: Memory optimization arguments ---------------#  
+    parser.add_argument(
+        '--gradient_accumulation_steps',
+        type=int,
+        default=1,
+        help="Number of steps to accumulate gradients. Use 2-4 to reduce memory.",
+    )
+    parser.add_argument(
+        '--precision',
+        type=str,
+        default='16-mixed',  # Mixed precision by default
+        help="Training precision. Use '16-mixed' or 'bf16-mixed' for memory savings.",
+    )
+    parser.add_argument(
+        '--checkpoint_every_n_epochs',
+        type=int,
+        default=5,
+        help="Save checkpoint every N epochs.",
+    )
+
     args = parser.parse_args()
     return args
 
