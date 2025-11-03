@@ -1,6 +1,6 @@
-torch
-torchvision
-torchaudio
+# torch
+# torchvision
+# torchaudio
 setuptools
 pyaml
 lightning
@@ -9,4 +9,4 @@ seaborn
 pandas
 einops
 tensorboard
-mamba-ssm[causal-conv1d]
+# mamba-ssm[causal-conv1d]
