@@ -221,6 +221,8 @@ if __name__ == "__main__":
                          logger=logger,
                          callbacks=callbacks,
                          strategy = DDPStrategy(find_unused_parameters=False),
+                         check_val_every_n_epoch=10,    # run validation every 10 epochs
+                         enable_progress_bar=False,     # suppress per-epoch progress bars
                         )
 
     trainer.fit(model, datamodule=data_module)
