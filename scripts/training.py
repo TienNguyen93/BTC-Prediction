@@ -127,6 +127,27 @@ def load_model(config, logger_type):
     return model, normalize
 
 
+# --- Custom Callback to log every N epochs ---
+class EpochLoggingCallback(pl.Callback):
+    def __init__(self, log_every_n_epochs=10):
+        super().__init__()
+        self.log_every_n_epochs = log_every_n_epochs
+
+    def on_train_epoch_end(self, trainer, pl_module):
+        epoch = trainer.current_epoch + 1
+        if epoch % self.log_every_n_epochs == 0:
+            metrics = trainer.callback_metrics
+            # Print to Kaggle notebook
+            print(f"Epoch {epoch}/{trainer.max_epochs} | Metrics: {metrics}")
+            
+            # # Optionally log to TensorBoard manually if desired
+            # if trainer.logger is not None:
+            #     for k, v in metrics.items():
+            #         if isinstance(v, (int, float)):
+            #             trainer.logger.experiment.add_scalar(k, v, epoch)
+
+
+
 
 if __name__ == "__main__":
 
@@ -181,7 +202,12 @@ if __name__ == "__main__":
             auto_insert_metric_name=False,
             save_last=True,
         )
-        callbacks.append(checkpoint_callback)
+    
+    callbacks.append(checkpoint_callback)
+
+    # Add epoch logging callback
+    epoch_logger = EpochLoggingCallback(log_every_n_epochs=10)
+    callbacks.append(epoch_logger)
 
     max_epochs = config.get('max_epochs', args.max_epochs)
     model.set_normalization_coeffs(data_module.factors)
@@ -191,7 +217,7 @@ if __name__ == "__main__":
                          devices=args.devices,
                          max_epochs=max_epochs,
                          enable_checkpointing=args.save_checkpoints,
-                         log_every_n_steps=50,   # prev = 10
+                         log_every_n_steps=9999,   # prev = 10
                          logger=logger,
                          callbacks=callbacks,
                          strategy = DDPStrategy(find_unused_parameters=False),
