@@ -191,7 +191,7 @@ if __name__ == "__main__":
                          devices=args.devices,
                          max_epochs=max_epochs,
                          enable_checkpointing=args.save_checkpoints,
-                         log_every_n_steps=10,
+                         log_every_n_steps=100,
                          logger=logger,
                          callbacks=callbacks,
                          strategy = DDPStrategy(find_unused_parameters=False),
