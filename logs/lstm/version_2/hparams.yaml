@@ -1,0 +1,22 @@
+logdir: null
+accelerator: gpu
+devices: 1
+seed: 23
+expname: Cmamba
+config: lstm_v
+logger_type: tb
+num_workers: 4
+batch_size: 32
+save_checkpoints: true
+use_volume: true
+resume_from_checkpoint: null
+max_epochs: 200
+data_config: mode_1
+model: LSTM_v
+name: lstm
+hyperparams:
+  optimizer: adam
+  lr: 0.001
+  lr_step_size: 100
+  lr_gamma: 0.5
+  weight_decay: 3.0e-06
