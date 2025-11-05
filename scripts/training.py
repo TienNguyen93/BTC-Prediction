@@ -129,7 +129,7 @@ def load_model(config, logger_type):
 
 # --- Custom Callback to log every N epochs ---
 class EpochLoggingCallback(pl.Callback):
-    def __init__(self, log_every_n_epochs=10):
+    def __init__(self, log_every_n_epochs=50):
         super().__init__()
         self.log_every_n_epochs = log_every_n_epochs
 
@@ -138,7 +138,7 @@ class EpochLoggingCallback(pl.Callback):
         if epoch % self.log_every_n_epochs == 0:
             metrics = trainer.callback_metrics
             # Print to Kaggle notebook
-            print(f"Epoch {epoch}/{trainer.max_epochs} | Metrics: {metrics}")
+            print(f"\nEpoch {epoch}/{trainer.max_epochs} | Metrics: {metrics}")
             
             # # Optionally log to TensorBoard manually if desired
             # if trainer.logger is not None:
@@ -206,7 +206,7 @@ if __name__ == "__main__":
     callbacks.append(checkpoint_callback)
 
     # Add epoch logging callback
-    epoch_logger = EpochLoggingCallback(log_every_n_epochs=10)
+    epoch_logger = EpochLoggingCallback(log_every_n_epochs=50)
     callbacks.append(epoch_logger)
 
     max_epochs = config.get('max_epochs', args.max_epochs)
@@ -221,7 +221,7 @@ if __name__ == "__main__":
                          logger=logger,
                          callbacks=callbacks,
                          strategy = DDPStrategy(find_unused_parameters=False),
-                         check_val_every_n_epoch=10,    # run validation every 10 epochs
+                         check_val_every_n_epoch=50,    # run validation every 10 epochs
                          enable_progress_bar=False,     # suppress per-epoch progress bars
                         )
 
