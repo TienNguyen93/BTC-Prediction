@@ -7,4 +7,4 @@ data_path: "./data/btc-senti-score.csv"
 train_interval: ["2020-01-01", "2022-10-18"]
 val_interval: ["2022-10-19", "2023-05-25"]
 test_interval: ["2023-05-26", "2023-12-31"]
-additional_features: []
+additional_features: ['Score']
