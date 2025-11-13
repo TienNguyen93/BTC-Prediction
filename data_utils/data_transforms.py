@@ -2,7 +2,7 @@ import torch
 
 
 class DataTransform:
-    def __init__(self, is_train, use_volume=False, additional_features=[]):
+    def __init__(self, is_train, use_volume=False, additional_features=['Score']):
         self.is_train = is_train
         self.keys = ['Timestamp', 'Open', 'High', 'Low', 'Close']
         if use_volume:
