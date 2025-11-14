@@ -4,7 +4,7 @@ model: 'CMamba_v1'
 name: 'CMamba'
 max_epochs: 500
 use_volume: False
-additional_features: []
+additional_features: ['Score']
 
 hyperparams:
     optimizer: 'adam'
