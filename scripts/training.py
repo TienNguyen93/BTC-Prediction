@@ -166,6 +166,8 @@ if __name__ == "__main__":
     val_transform = DataTransform(is_train=False, use_volume=use_volume, additional_features=config.get('additional_features', []))
     test_transform = DataTransform(is_train=False, use_volume=use_volume, additional_features=config.get('additional_features', []))
     
+    print('train_transform:', train_transform, '\n', type(train_transform))
+    
     model, normalize = load_model(config, args.logger_type)
 
     tmp = vars(args)
