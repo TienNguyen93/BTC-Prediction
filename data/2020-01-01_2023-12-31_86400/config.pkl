@@ -1,0 +1,17 @@
+additional_features:
+- Score
+data_path: ./data/btc-senti-score.csv
+date_format: '%Y-%m-%d'
+end_date: '2023-12-31'
+jumps: 86400
+root: ./data
+start_date: '2020-01-01'
+test_interval:
+- '2023-05-26'
+- '2023-12-31'
+train_interval:
+- '2020-01-01'
+- '2022-10-18'
+val_interval:
+- '2022-10-19'
+- '2023-05-25'
