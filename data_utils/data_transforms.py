@@ -17,6 +17,7 @@ class DataTransform:
         if 'Timestamp_orig' in window.keys():
             self.keys.append('Timestamp_orig')
         for key in self.keys:
+            print('debug here:', key)
             data = torch.tensor(window.get(key).tolist())
             if key == 'Volume':
                 data /= 1e9
