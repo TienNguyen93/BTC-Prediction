@@ -160,18 +160,11 @@ if __name__ == "__main__":
     data_config = io_tools.load_config_from_yaml(f"{ROOT}/configs/data_configs/{config.get('data_config')}.yaml")
     use_volume = args.use_volume
 
-    # debug 
-    print("data_config here:", data_config)
-
     if not use_volume:
         use_volume = config.get('use_volume')
     train_transform = DataTransform(is_train=True, use_volume=use_volume, additional_features=config.get('additional_features', []))
     val_transform = DataTransform(is_train=False, use_volume=use_volume, additional_features=config.get('additional_features', []))
     test_transform = DataTransform(is_train=False, use_volume=use_volume, additional_features=config.get('additional_features', []))
-
-    # debug 
-    print('train_transform keys:', train_transform.keys)
-    # print('train_transform shape:', train_transform.keys)
     
     model, normalize = load_model(config, args.logger_type)
 
