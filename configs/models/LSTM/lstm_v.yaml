@@ -1,6 +1,6 @@
 target: pl_modules.lstm_module.LSTMModule
 params: 
-    num_features: 6
+    num_features: 7
     hidden_size: 100
     num_layers: 3
     bidirectional: False
