@@ -10,6 +10,9 @@ class DataTransform:
         self.keys += additional_features
         print(self.keys)
 
+        # debug
+        print('another debug', type(self.keys))
+
 
     def __call__(self, window):
         data_list = []
@@ -17,8 +20,11 @@ class DataTransform:
         if 'Timestamp_orig' in window.keys():
             self.keys.append('Timestamp_orig')
         for key in self.keys:
+            #debug
             print('debug here:', key)
+
             data = torch.tensor(window.get(key).tolist())
+
             if key == 'Volume':
                 data /= 1e9
             output[key] = data[-1]
