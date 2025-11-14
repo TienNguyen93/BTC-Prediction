@@ -4,6 +4,7 @@ model: 'LSTM_v'
 name: 'lstm'
 max_epochs: 200
 use_volume: True
+additional_features: ['Score']
 
 hyperparams:
     optimizer: 'adam'

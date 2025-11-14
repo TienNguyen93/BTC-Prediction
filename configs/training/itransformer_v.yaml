@@ -4,6 +4,7 @@ model: 'iTransformer_v'
 name: 'itransformer'
 max_epochs: 300
 use_volume: True
+additional_features: ['Score']
 
 hyperparams:
     optimizer: 'adam'
